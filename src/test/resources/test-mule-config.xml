@@ -1,0 +1,19 @@
+<mule xmlns="http://www.mulesoft.org/schema/mule/core"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:string-operation="http://www.mulesoft.org/schema/mule/string-operation"
+      xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+          http://www.mulesoft.org/schema/mule/string-operation http://www.mulesoft.org/schema/mule/string-operation/current/mule-string-operation.xsd">
+
+    <string-operation:config name="config" configId="configId">
+        <string-operation:connection requiredParameter="aValue" />
+    </string-operation:config>
+
+    <flow name="sayHiFlow">
+        <string-operation:say-hi person="Mariano Gonzalez"/>
+    </flow>
+
+    <flow name="retrieveInfoFlow">
+        <string-operation:retrieve-info config-ref="config"/>
+    </flow>
+
+</mule>
