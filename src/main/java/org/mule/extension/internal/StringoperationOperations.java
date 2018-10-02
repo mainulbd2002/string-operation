@@ -7,6 +7,8 @@ import org.mule.runtime.extension.api.annotation.param.Config;
 import org.mule.runtime.extension.api.annotation.param.Connection;
 import org.mule.runtime.extension.api.annotation.param.Optional;
 
+import javafx.scene.control.Separator;
+
 
 
 /**
@@ -54,6 +56,9 @@ public class StringoperationOperations {
 		  int beginIndex, 
 		  @Optional int endIndex) {
 	  
+	  if (endIndex > inputString.length())
+		  endIndex = inputString.length();
+	  
 	  if (endIndex != 0)
 		  return inputString.substring(beginIndex,endIndex);
 	  else {
@@ -90,6 +95,9 @@ public class StringoperationOperations {
   @MediaType(value = ANY, strict = false)
   public int getOccurance(String inputString, String separator, boolean ignoreCase) {
 	  
+	  if (separator.length() == 0)
+		  return 0;
+	  
 	  int occurance = 0;
 	  String opString = new String(inputString);
 	  if (ignoreCase) {
@@ -115,6 +123,9 @@ public class StringoperationOperations {
 		  String separator,
 		  int occurance,
 		  boolean ignoreCase) {
+	  
+	  if (separator.length() == 0)
+		  return "";
 	  
 	  int frequency = 0;
 	  String opString = new String(inputString);
