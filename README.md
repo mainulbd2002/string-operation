@@ -1,18 +1,13 @@
 # String-operation Extension
 
-Add description ...
-
-
-...
-
-
-...
+Mule extension for string operation
+Get the version from latest pom
 
 
 Add this dependency to your application pom.xml
 
 ```
-<groupId>com.mainul</groupId>
+<groupId>8b23ca76-1920-4a92-9591-86d4b222fbdd</groupId>
 <artifactId>string-operation</artifactId>
-<version>1.0.0</version>
+<version>VERSION</version>
 ```
