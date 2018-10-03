@@ -109,7 +109,7 @@ public class StringoperationOperations {
 		  position =opString.indexOf(separator);
 		  if (position > -1) {
 			  occurance++;
-			  opString = opString.substring(position + separator.length(), inputString.length());
+			  opString = opString.substring(position + separator.length());
 		  }
 	  }while(position > -1);
 	  
@@ -138,7 +138,7 @@ public class StringoperationOperations {
 		  position =opString.indexOf(separator);
 		  if (position > -1) {
 			  frequency++;
-			  opString = opString.substring(position + separator.length(), opString.length());
+			  opString = opString.substring(position + separator.length());
 		  }
 	  }while(position > -1 && frequency < occurance);
 	  
@@ -149,27 +149,83 @@ public class StringoperationOperations {
   
   
   @MediaType(value = ANY, strict = false)
-  public String reverse(String inputStr) {
+  public String reverse(String inputString) {
 	  
-	  StringBuffer sbf = new StringBuffer(inputStr);
+	  StringBuffer sbf = new StringBuffer(inputString);
 	  return sbf.reverse().toString();
 	  
   }
   
   @MediaType(value = ANY, strict = false)
-  public String toUpperCase(String inputStr) {
+  public String toUpperCase(String inputString) {
 	  
-	  return inputStr.toUpperCase();
+	  return inputString.toUpperCase();
 	  
   }
   
   @MediaType(value = ANY, strict = false)
-  public String toLowerCase(String inputStr) {
+  public String toLowerCase(String inputString) {
 	  
-	  return inputStr.toLowerCase();
+	  return inputString.toLowerCase();
 	  
   }
-  
+
+	@MediaType(value = ANY, strict = false)
+	public String removeSubString(String inputString,
+							   String stringToRemove) {
+
+  		if (stringToRemove.length() == 0){
+  			return inputString;
+		}
+
+        String newStr = new String();
+		String opStr = new String(inputString);
+        int position = 0;
+
+        do {
+            position = opStr.indexOf(stringToRemove);
+            if (position > 0){
+                newStr += opStr.substring(0, position);
+                opStr = opStr.substring(position+ stringToRemove.length());
+            }
+        }while(position > 0);
+
+        newStr = newStr + opStr;
+
+        return newStr;
+
+	}
+
+    @MediaType(value = ANY, strict = false)
+    public String replaceSubString(String inputString,
+                                  String stringToReplace,
+                                   String stringToReplaceWith) {
+
+        if (stringToReplace.length() == 0){
+            return inputString;
+        }
+
+        if (stringToReplaceWith.length() == 0){
+            return removeSubString(inputString, stringToReplace);
+        }
+
+        String newStr = new String();
+        String opStr = new String(inputString);
+        int position = 0;
+
+        do {
+            position = opStr.indexOf(stringToReplace);
+            if (position > 0){
+                newStr += opStr.substring(0, position) + stringToReplace;
+                opStr = opStr.substring(position+ stringToReplace.length());
+            }
+        }while(position > 0);
+
+        newStr = newStr + opStr;
+
+        return newStr;
+
+    }
   
 
 }
