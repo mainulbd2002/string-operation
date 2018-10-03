@@ -142,12 +142,33 @@ public class StringoperationOperations {
 		  }
 	  }while(position > -1 && frequency < occurance);
 	  
-	  return opString;
-	  
+	  return opString;  
 	  
 	  
   }
   
+  
+  @MediaType(value = ANY, strict = false)
+  public String reverse(String inputStr) {
+	  
+	  StringBuffer sbf = new StringBuffer(inputStr);
+	  return sbf.reverse().toString();
+	  
+  }
+  
+  @MediaType(value = ANY, strict = false)
+  public String toUpperCase(String inputStr) {
+	  
+	  return inputStr.toUpperCase();
+	  
+  }
+  
+  @MediaType(value = ANY, strict = false)
+  public String toLowerCase(String inputStr) {
+	  
+	  return inputStr.toLowerCase();
+	  
+  }
   
   
 
