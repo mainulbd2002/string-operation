@@ -226,6 +226,13 @@ public class StringoperationOperations {
         return newStr;
 
     }
+
+	@MediaType(value = ANY, strict = false)
+	public int contains(String inputString,
+						   String stringToTest){
+
+  		return inputString.indexOf(stringToTest);
+	}
   
 
 }
