@@ -233,6 +233,40 @@ public class StringoperationOperations {
 
   		return inputString.indexOf(stringToTest);
 	}
+
+	@MediaType(value = ANY, strict = false)
+	public String stripHostAddress(String inputString){
+
+
+  			String host = new String();
+  			if (inputString.startsWith("http")){
+
+  				String temp = inputString.substring(inputString.indexOf("//") + 2);
+  				host = temp.substring(0, temp.indexOf("/"));
+			}
+			else{
+				host = inputString.substring(0, inputString.indexOf("/"));
+			}
+
+  			return host;
+	}
+
+	@MediaType(value = ANY, strict = false)
+	public String stripSitePath(String inputString){
+
+
+		String site = new String();
+		if (inputString.startsWith("http")){
+
+			String temp = inputString.substring(inputString.indexOf("//") + 2);
+			site = temp.substring(temp.indexOf("/"));
+		}
+		else{
+			site = inputString.substring(inputString.indexOf("/"));
+		}
+
+		return site;
+	}
   
 
 }
