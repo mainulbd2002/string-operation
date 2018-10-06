@@ -6,7 +6,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>8b23ca76-1920-4a92-9591-86d4b222fbdd</groupId>
     <artifactId>string-operation</artifactId>
-    <version>1.2.2</version>
+    <version>1.2.3</version>
     <packaging>mule-extension</packaging>
     <name>String-operation Extension</name>
 
