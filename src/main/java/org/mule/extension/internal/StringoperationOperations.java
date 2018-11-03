@@ -9,6 +9,9 @@ import org.mule.runtime.extension.api.annotation.param.Optional;
 
 import javafx.scene.control.Separator;
 
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.util.TimeZone;
 
 
 /**
@@ -266,6 +269,16 @@ public class StringoperationOperations {
 		}
 
 		return site;
+	}
+
+	@MediaType(value = ANY, strict = false)
+	public String getTimeZoneName(){
+
+		Calendar cal = new GregorianCalendar();
+		TimeZone tz = cal.getTimeZone();
+
+		return tz.getDisplayName();
+
 	}
   
 

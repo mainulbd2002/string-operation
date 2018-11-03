@@ -16,6 +16,8 @@ Available function
 10) Remove string - Removes string in a given string.
 11) Replace string - Replaces a string in a given string with a provided string
 12) Contains - Returns the index of a string in a given string
+13) Strip host address - returns host address from a given url
+14) Strip site path - returns site path from a given url
 
 
 Add this dependency to your application pom.xml
